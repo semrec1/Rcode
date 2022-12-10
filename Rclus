@@ -1,0 +1,21 @@
+#b. Create a Clustering Model and 
+# i. Clustering algorithms for unsupervised classification. 
+# ii. Plot the cluster data using R visualizations
+
+# i. Clustering algorithms for unsupervised classification. 
+
+library(cluster)
+set.seed(20)
+irisCluster= kmeans(iris[,3:4],3,nstart=20)
+irisCluster
+
+d= dist(as.matrix(mtcars))
+hc=hclust(d)
+plot(hc)
+
+# ii. Plot the cluster data using R visualizations
+x= rbind(cbind(rnorm(10,0,0.5),rnorm(10,0,0.5)),cbind(rnorm(15,0,0.5),rnorm(15,0,0.5)))
+clusplot(pam(x,2))
+
+x4= cbind(x,rnorm(25),rnorm(25))
+clusplot(pam(x4,2))
